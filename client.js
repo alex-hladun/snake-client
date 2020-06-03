@@ -18,6 +18,15 @@ const connect = function() {
   conn.on('connect', () => {
     console.log("Connected to game server.");
     conn.write('Name: REX');
+    // conn.write('Move: up');
+
+    // setTimeout(() => {
+    //   conn.write('Move: up');
+    // }, 50);
+    // setTimeout(() => {
+    //   conn.write('Move: up');
+    // }, 50);
+
   });
 
   
