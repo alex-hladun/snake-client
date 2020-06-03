@@ -1,5 +1,15 @@
 const stdin = process.stdin;
+// put here to initialize. Will re-assign later.
 let connection;
+const {
+  host,
+  port,
+  MOVE_DOWN_KEY,
+  MOVE_LEFT_KEY,
+  MOVE_RIGHT_KEY,
+  MOVE_UP_KEY } = require('./constants');
+
+console.log("Move down key: ", MOVE_DOWN_KEY);
 
 const setupInput = function(conn) {
   connection = conn;
@@ -34,9 +44,15 @@ const handleUserInput = (key) => {
     connection.write("Move: right");
     // console.log("D key");
     break;
+  case '\u0031':
+    connection.write("Say: LEEEROY JENKINS!!!");
+    // console.log("D key");
+    break;
+  case '\u0032':
+    connection.write("Say: Please move!");
+    // console.log("D key");
+    break;
   }
 };
-
-
 
 module.exports = { setupInput };
