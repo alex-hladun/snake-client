@@ -4,10 +4,17 @@ let connection;
 const {
   host,
   port,
+  MOVE_RIGHT_KEY,
   MOVE_DOWN_KEY,
   MOVE_LEFT_KEY,
-  MOVE_RIGHT_KEY,
-  MOVE_UP_KEY } = require('./constants');
+  MOVE_UP_KEY,
+  MESSAGE_1_KEY,
+  MESSAGE_2_KEY,
+  MESSAGE_3_KEY,
+  QUIT_KEY,
+  MESSAGE_1,
+  MESSAGE_2,
+  MESSAGE_3 } = require('./constants');
 
 console.log("Move down key: ", MOVE_DOWN_KEY);
 
@@ -24,32 +31,36 @@ setupInput();
 
 const handleUserInput = (key) => {
   switch (key) {
-  case '\u0003':
+  case QUIT_KEY:
     console.log("Thanks for using me, ciao!");
     process.exit();
     break;
-  case '\u0077':
+  case MOVE_UP_KEY:
     connection.write("Move: up");
     // console.log("w Key");
     break;
-  case '\u0061':
+  case MOVE_LEFT_KEY:
     connection.write("Move: left");
     // console.log("a key");
     break;
-  case '\u0073':
+  case MOVE_DOWN_KEY:
     connection.write("Move: down");
     // console.log("s key");
     break;
-  case '\u0064':
+  case MOVE_RIGHT_KEY:
     connection.write("Move: right");
     // console.log("D key");
     break;
-  case '\u0031':
-    connection.write("Say: LEEEROY JENKINS!!!");
+  case MESSAGE_1_KEY:
+    connection.write(MESSAGE_1);
     // console.log("D key");
     break;
-  case '\u0032':
-    connection.write("Say: Please move!");
+  case MESSAGE_2_KEY:
+    connection.write(MESSAGE_2);
+    // console.log("D key");
+    break;
+  case MESSAGE_3_KEY:
+    connection.write(MESSAGE_3);
     // console.log("D key");
     break;
   }
